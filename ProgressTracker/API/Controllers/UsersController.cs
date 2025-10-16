@@ -1,38 +1,65 @@
-using System;
-using API.Entities;
+﻿using System;
+using Common.Entities;
+using Common.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("API/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private static List<User> users = new List<User>();
-
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(users);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var result = users.FirstOrDefault(i => i.Id == id);
-            if (result is null)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            UsersServices service = new UsersServices();
+            return Ok(service.GetAll());
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] User newUser)
+        public IActionResult Post([FromBody] User user)
         {
-            newUser.Id = users.Count + 1;
-            users.Add(newUser);
-            return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
+            UsersServices service = new UsersServices();
+            service.Save(user);
+            return Ok(user);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            UsersServices service = new UsersServices();
+            User forDelete = service.GetById(id);
+
+            if (forDelete == null)
+            {
+                throw new Exception("User not found!");
+            }
+
+            service.Delete(forDelete);
+            return Ok(forDelete);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Put([FromRoute] int id, [FromBody] User data)
+        {
+            UsersServices service = new UsersServices();
+            User forUpdate = service.GetById(id);
+
+            if (forUpdate == null)
+            {
+                throw new Exception("User not found!");
+            }
+
+            forUpdate.Username = data.Username;
+            forUpdate.Password = data.Password;
+            forUpdate.FirstName = data.FirstName;
+            forUpdate.LastName = data.LastName;
+
+            service.Save(forUpdate);
+            return Ok(forUpdate);
         }
     }
 }

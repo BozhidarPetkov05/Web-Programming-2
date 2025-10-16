@@ -1,6 +1,6 @@
 using System;
 
-namespace API.Entities
+namespace Common.Entities
 {
     public class User
     {
