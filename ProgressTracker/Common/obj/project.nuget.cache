@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ucLmIrrx6s34aKE6EKaBEgqxie0Xp/zcNOtSPD3Jsa5JGh6NDrWZa6ODC1vq2IxRctxENj3cMg0ySk1wCR7jFg==",
+  "dgSpecHash": "XVRC+HRUBsM=",
   "success": true,
   "projectFilePath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -11,7 +11,17 @@ namespace Common.Services
 
         static UsersServices()
         {
-            Items = new List<User>();
+            Items = new List<User>()
+            {
+                new User()
+                {
+                    Id = 1,
+                    Username = "gosho",
+                    Password = "1234",
+                    FirstName = "Zele",
+                    LastName = "Oriz"
+                }
+            };
         }
 
         public List<User> GetAll()

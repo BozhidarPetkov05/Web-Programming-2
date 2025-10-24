@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Common
 build_property.ProjectDir = C:\Users\XidZ01\Desktop\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\Common\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
