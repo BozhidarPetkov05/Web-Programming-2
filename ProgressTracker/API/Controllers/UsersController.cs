@@ -1,9 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using API.Infrastructure.RequestDTOs.Users;
 using Common.Entities;
 using Common.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +20,12 @@ namespace API.Controllers
     [Authorize]
     public class UsersController : ControllerBase
     {
+        private IValidator<User> _validator;
+        public UsersController(IValidator<User> validator) 
+        {
+            // Inject our validator and also a DB context for storing our person object.
+            _validator = validator;
+        }
         [HttpGet]
         public IActionResult Get()
         {
@@ -54,17 +63,19 @@ namespace API.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Put([FromRoute]int id, [FromBody]UserRequest model)
+        public async Task<IActionResult> Put([FromRoute]int id, [FromBody]UserRequestFluent model)
         {
             UserServices service = new UserServices();
             User forUpdate = service.GetById(id);
             if (forUpdate == null)
                 throw new Exception("User not found");
 
-            forUpdate.Username = model.Username;
-            forUpdate.Password = model.Password;
-            forUpdate.FirstName = model.FirstName;
-            forUpdate.LastName = model.LastName;
+            ValidationResult result = _validator.Validate(model);
+
+            // forUpdate.Username = model.Username;
+            // forUpdate.Password = model.Password;
+            // forUpdate.FirstName = model.FirstName;
+            // forUpdate.LastName = model.LastName;
 
             service.Save(forUpdate);
 

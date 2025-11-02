@@ -1,4 +1,7 @@
 using System.Text;
+using API.Infrastructure.RequestDTOs.Users;
+using Common.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +27,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                         new SymmetricSecurityKey(Encoding.ASCII.GetBytes("!Password123!Password123!Password123"))
         };
     });
+
+builder.Services.AddScoped<IValidator<User>, UserRequestFluent>();
 
 var app = builder.Build();
 app.UseHttpsRedirection();

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "byif8ORasdQ=",
+  "dgSpecHash": "MulW2BerLrM=",
   "success": true,
   "projectFilePath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\XidZ01\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.21\\microsoft.aspnetcore.authentication.jwtbearer.8.0.21.nupkg.sha512",
     "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.1.2\\microsoft.identitymodel.abstractions.7.1.2.nupkg.sha512",
     "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.1.2\\microsoft.identitymodel.jsonwebtokens.7.1.2.nupkg.sha512",
