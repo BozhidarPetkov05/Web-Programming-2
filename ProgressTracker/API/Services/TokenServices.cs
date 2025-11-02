@@ -1,7 +1,7 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.AccessControl;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using Common.Entities;
 using Microsoft.IdentityModel.Tokens;
@@ -25,10 +25,11 @@ public class TokenServices
             audience: "front-end",
             claims: claims,
             expires: DateTime.Now.AddMinutes(10),
-            signingCredentials: null
+            signingCredentials: cred
         );
-
-        string tokenData = new JwtSecurityTokenHandler().WriteToken(token);
+        string tokenData = new JwtSecurityTokenHandler()
+                                            .WriteToken(token);
+        
         return tokenData;
     }
 }

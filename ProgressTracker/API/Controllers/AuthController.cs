@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Linq;
+using API.Infrastructure.RequestDTOs.Auth;
 using API.Services;
+using Common;
 using Common.Entities;
 using Common.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -12,15 +14,36 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         [HttpPost]
-        public IActionResult CreateToken([FromForm] string username, [FromForm] string password)
+        public IActionResult CreateToken([FromForm] AuthTokenRequest model)
         {
-            UsersServices service = new UsersServices();
-            User loggedUser = service.GetAll().FirstOrDefault(u => u.Username == username && u.Password == password);
+            if (!ModelState.IsValid)
+                return BadRequest(
+                    ServiceResultExtentions<List<Error>>.Failure(null, ModelState)
+                );
 
-            TokenServices tokenServices = new TokenServices();
-            string token = tokenServices.CreateToken(loggedUser);
+            UserServices service = new UserServices();
+            User loggedUser = service.GetAll()
+                                        .FirstOrDefault(u =>
+                                            u.Username == model.Username &&
+                                            u.Password == model.Password);
 
-            return Ok(new { token = token }); 
+            if (loggedUser == null)
+            {
+                ModelState.AddModelError("Global", "Invalid username or password.");
+                
+                return Unauthorized(
+                    ServiceResultExtentions<List<Error>>.Failure(null, ModelState)
+                );
+            }
+
+            TokenServices tokenService = new TokenServices();
+
+            string token = tokenService.CreateToken(loggedUser);
+
+            return Ok(new
+            {
+                token = token
+            });
         }
     }
 }

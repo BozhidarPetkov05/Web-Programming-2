@@ -1,65 +1,88 @@
-﻿using System;
+using System;
+using System.Linq;
+using System.Security.Claims;
+using API.Infrastructure.RequestDTOs.Users;
 using Common.Entities;
 using Common.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         [HttpGet]
         public IActionResult Get()
         {
-            UsersServices service = new UsersServices();
+            UserServices service = new UserServices();
+
             return Ok(service.GetAll());
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] User user)
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult Get([FromRoute]int id)
         {
-            UsersServices service = new UsersServices();
-            service.Save(user);
-            return Ok(user);
+            UserServices service = new UserServices();
+
+            return Ok(service.GetById(id));
         }
 
-        [HttpDelete]
-        [Route("{id}")]
-        public IActionResult Delete([FromRoute] int id)
+        [HttpPost]
+        public IActionResult Post([FromBody] UserRequest model)
         {
-            UsersServices service = new UsersServices();
-            User forDelete = service.GetById(id);
+            UserServices service = new UserServices();
 
-            if (forDelete == null)
+            var item = new User
             {
-                throw new Exception("User not found!");
-            }
+                Username = model.Username,
+                Password = model.Password,
+                FirstName = model.FirstName,
+                LastName = model.LastName
+            };
 
-            service.Delete(forDelete);
-            return Ok(forDelete);
+            service.Save(item);
+
+            return Ok(model);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Put([FromRoute] int id, [FromBody] User data)
+        public IActionResult Put([FromRoute]int id, [FromBody]UserRequest model)
         {
-            UsersServices service = new UsersServices();
+            UserServices service = new UserServices();
             User forUpdate = service.GetById(id);
-
             if (forUpdate == null)
-            {
-                throw new Exception("User not found!");
-            }
+                throw new Exception("User not found");
 
-            forUpdate.Username = data.Username;
-            forUpdate.Password = data.Password;
-            forUpdate.FirstName = data.FirstName;
-            forUpdate.LastName = data.LastName;
+            forUpdate.Username = model.Username;
+            forUpdate.Password = model.Password;
+            forUpdate.FirstName = model.FirstName;
+            forUpdate.LastName = model.LastName;
 
             service.Save(forUpdate);
+
             return Ok(forUpdate);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute]int id)
+        {
+            UserServices service = new UserServices();
+            User forDelete = service.GetById(id);
+            if (forDelete == null)
+                throw new Exception("User not found");
+
+            service.Delete(forDelete);
+
+            return Ok(forDelete);
         }
     }
 }
