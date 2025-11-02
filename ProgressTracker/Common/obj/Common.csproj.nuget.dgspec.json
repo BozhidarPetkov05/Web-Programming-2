@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\Common\\Common.csproj": {}
+    "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\Common\\Common.csproj": {
+    "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\XidZ01\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\Common\\obj\\",
+        "outputPath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

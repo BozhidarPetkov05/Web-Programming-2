@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "452r/C6D8cQ=",
+  "dgSpecHash": "byif8ORasdQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\ProgressTracker\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\XidZ01\\Desktop\\Software Engineering\\2nd Course 1st Semester\\Web-Programming-2\\ProgressTracker\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.21\\microsoft.aspnetcore.authentication.jwtbearer.8.0.21.nupkg.sha512",
     "C:\\Users\\XidZ01\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.1.2\\microsoft.identitymodel.abstractions.7.1.2.nupkg.sha512",
