@@ -1,7 +1,6 @@
 using System.Text;
-using API.Infrastructure.RequestDTOs.Users;
-using Common.Entities;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +14,7 @@ builder.Services.AddControllers()
     {
         options.SuppressModelStateInvalidFilter = true;
     });
-    
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -27,8 +26,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                         new SymmetricSecurityKey(Encoding.ASCII.GetBytes("!Password123!Password123!Password123"))
         };
     });
-
-builder.Services.AddScoped<IValidator<User>, UserRequestFluent>();
+    
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 app.UseHttpsRedirection();

@@ -1,0 +1,15 @@
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\bin\Debug\net10.0\Common.deps.json
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\bin\Debug\net10.0\Common.runtimeconfig.json
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\bin\Debug\net10.0\Common.dll
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\bin\Debug\net10.0\Common.pdb
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.csproj.AssemblyReference.cache
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.AssemblyInfoInputs.cache
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.AssemblyInfo.cs
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.csproj.CoreCompileInputs.cache
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.sourcelink.json
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.dll
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\refint\Common.dll
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.pdb
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\Common.genruntimeconfig.cache
+D:\Software Engineering\2nd Course 1st Semester\Web-Programming-2\ProgressTracker\common\obj\Debug\net10.0\ref\Common.dll
